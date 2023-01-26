@@ -1,8 +1,9 @@
-Width, Height = love.graphics.getDimensions()
+require 'screen'
+require 'image'
 
 Player = {
-  sprite = love.graphics.newImage('images/ship.png'),
-  booster = love.graphics.newImage('images/fire.png'),
+  sprite = CreateImg('ship.png'),
+  booster = CreateImg('fire.png'),
   x = Width / 2,
   y = Height / 2,
   radius = 5,
@@ -58,6 +59,10 @@ function ResetPlayerState()
 end
 
 function DrawPlayer()
+  -- player sprite
+  -- player position
+  -- player angle
+  -- player fire sprite
   love.graphics.draw(Player.sprite, Player.x, Player.y, math.rad(math.deg(Player.angle) + 90), 1, 1,
   Player.sprite:getWidth() / 2, Player.sprite:getHeight() / 2)
 end
@@ -89,6 +94,6 @@ function DrawPlayerEnergy()
 end
 
 function DrawPlayerScore()
-  love.graphics.setFont(MainFont.normal)
+  DrawText('Score: ' .. Player.score, 50, 10, 20)
   love.graphics.print('Score: ' .. Player.score, 10, 20)
 end
