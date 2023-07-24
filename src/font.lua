@@ -1,14 +1,8 @@
-MainFont = {
-  normal = love.graphics.newFont("fonts/Kenney Pixel.ttf", 30),
-  big = love.graphics.newFont("fonts/Kenney Pixel.ttf", 50)
-}
-
-function DrawBigText(text, x, y)
-  love.graphics.setFont(MainFont.big)
-  love.graphics.print(text, x, y)
+function CreateFont(size)
+  return love.graphics.newFont("fonts/Kenney Pixel.ttf", size)
 end
 
-function DrawText(text, x, y)
-  love.graphics.setFont(MainFont.normal)
+function DrawText(font, text, x, y)
+  love.graphics.setFont(font)
   love.graphics.print(text, x, y)
 end

@@ -1,10 +1,11 @@
-Width, Height = love.graphics.getDimensions()
+require "src/wrapper/math"
+require "src/wrapper/graphics"
 
 Bullet = {
   x = 0,
   y = 0,
   speed = 20,
-  angle = math.rad(-90),
+  angle = deg2rad(-90),
   visible = false,
   radius = 3
 }

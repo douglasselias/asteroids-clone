@@ -1,5 +1,20 @@
-MeteorsSprites = {love.graphics.newImage('images/meteor1.png'), love.graphics.newImage('images/meteor2.png'),
-                  love.graphics.newImage('images/meteor3.png'), love.graphics.newImage('images/meteor4.png')}
+require "src/wrapper/graphics"
+
+SpritePaths = {
+  'images/meteor1.png',
+  'images/meteor2.png',
+  'images/meteor3.png',
+  'images/meteor4.png',
+}
+
+-- MeteorsSprites = {}
+
+-- function initMeteors()
+--   MeteorsSprites.push(SpritePaths[i])
+-- end
+
+MeteorsSprites = {loadImage('images/meteor1.png'), loadImage('images/meteor2.png'),
+                  loadImage('images/meteor3.png'), loadImage('images/meteor4.png')}
 
 Meteors = {}
 MeteorsQty = 10

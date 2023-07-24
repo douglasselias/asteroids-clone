@@ -1,12 +1,13 @@
-Width, Height = love.graphics.getDimensions()
+require "src/wrapper/graphics"
+require "src/wrapper/math"
 
 Player = {
-  sprite = love.graphics.newImage('images/ship.png'),
-  booster = love.graphics.newImage('images/fire.png'),
-  x = Width / 2,
-  y = Height / 2,
+  sprite = loadImage('images/ship.png'),
+  booster = loadImage('images/fire.png'),
+  x = HalfWidth,
+  y = HalfHeight,
   radius = 5,
-  angle = math.rad(-90),
+  angle = deg2rad(-90),
   rotationSpeed = 10,
   speed = 0,
   boost = 10,

@@ -1,21 +1,33 @@
-stars = {}
+require "src/wrapper/math"
+require "src/wrapper/graphics"
 
-function CreateStars()
-  for i = 1, 100 do
-    stars[i] = {
-      x = math.random(0, love.graphics.getWidth()),
-      y = math.random(0, love.graphics.getHeight()),
-      size = math.random(1, 3)
+require "src/ecs/entity-manager"
+
+function loadStars(qty)
+  for i = 1, qty do
+    local star = {
+      x = randomBetween(0, Width),
+      y = randomBetween(0, Height),
+      size = randomBetween(1, 3)
     }
+    addEntity("star", star)
   end
 end
 
-function DrawStars()
-  for i = 1, #stars do
-    love.graphics.setColor(1, 1, 1, 0.3)
-    love.graphics.rectangle('fill', stars[i].x % Width, stars[i].y % Height, stars[i].size, stars[i].size)
-    love.graphics.setColor(1, 1, 1, 1)
-    stars[i].x = stars[i].x + 1
-    stars[i].y = stars[i].y + 1
-  end
+function updateStar(starEntity)
+  local star = starEntity.components
+  star.x = star.x + 1
+  star.y = star.y + 1
+end
+
+function renderStar(starEntity)
+  local star = starEntity.components
+  local color = {r=1, g=1, b=1, a=0.3}
+  local rect =  {
+    x = star.x % Width,
+    y = star.y % Height,
+    w = star.size,
+    h = star.size,
+  }
+  drawRectangle(color, rect)
 end
